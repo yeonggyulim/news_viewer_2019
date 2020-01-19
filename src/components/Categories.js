@@ -44,6 +44,16 @@ const CategoriesBlock = styled.div`
     }
 `;
 
+const AppTitleBlock = styled.div`
+    background: #20b6cd;
+    color: white;
+    height: 4rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
 const Category = styled(NavLink)`
     font-size: 1.125rem;
     cursor: pointer;
@@ -59,7 +69,7 @@ const Category = styled(NavLink)`
     &.active {
         font-weight: 600;
         border-bottom: 2px solid #22b8cf;
-        color: #22b8cf;
+        color: #20b6cd;
         &:hover {
             color: #3bc9db;
         }
@@ -73,18 +83,21 @@ const Category = styled(NavLink)`
 
 const Categories = () => {
     return (
-        <CategoriesBlock>
-            {categories.map(c => (
-                <Category 
-                    key={c.name}
-                    activeClassName='active'
-                    exact={c.name === 'all'}
-                    to={c.name === 'all' ? '/' : `/${c.name}`}
-                >
-                    {c.text}
-                </Category>
-            ))}
-        </CategoriesBlock>
+        <>
+            <AppTitleBlock>News App</AppTitleBlock>
+            <CategoriesBlock>
+                {categories.map(c => (
+                    <Category 
+                        key={c.name}
+                        activeClassName='active'
+                        exact={c.name === 'all'}
+                        to={c.name === 'all' ? '/' : `/${c.name}`}
+                    >
+                        {c.text}
+                    </Category>
+                ))}
+            </CategoriesBlock>
+        </>
     );
 };
 
